@@ -14,12 +14,12 @@ export default function LoadingTerminal({ duration = 10000 }: Props) {
     try {
       const hasVisited = localStorage.getItem("hasVisited");
       if (!hasVisited) {
-        setShow(true);
         localStorage.setItem("hasVisited", "true");
+        setShow(true);
         const t = setTimeout(() => setShow(false), duration);
         return () => clearTimeout(t);
       }
-    } catch (e) {
+    } catch {
       // If localStorage isn't available, don't show loader
       setShow(false);
     }
