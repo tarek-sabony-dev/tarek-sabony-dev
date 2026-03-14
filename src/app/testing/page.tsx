@@ -1,13 +1,9 @@
-import LoadingAnimation from "@/components/loading";
 
 export default function Home() {
   
   return (
-    <div className="">
-      <div>
-        Tarek Yoooooooooooooo
-      </div>
-      <LoadingAnimation />
+    <div className="h-screen flex justify-center items-center bg-gray-950">
+      
     </div>
   );
 }

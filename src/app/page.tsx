@@ -1,5 +1,5 @@
 import LoadingAnimation from "@/components/loading";
-import Orb from "@/components/Orb";
+import Orb from "@/components/ui/Orb";
 
 export default function Home() {
   return (
