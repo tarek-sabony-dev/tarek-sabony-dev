@@ -6,16 +6,12 @@ import RotatingText from './ui/RotatingText'
 
 export default function LoadingAnimation() {
   const [isExpanded, setIsExpanded] = useState(false)
-  const [show, setShow] = useState(true)
+  
 
   useEffect(() => {
     setIsExpanded(true)
-    // Hide after animation (8s delay + 0.5s fade = 8.5s)
-    const timeout = setTimeout(() => setShow(false), 8500)
-    return () => clearTimeout(timeout)
-  }, [])
+ }, [])
 
-  if (!show) return null
 
   return (
     <motion.div

@@ -1,34 +1,45 @@
-import LoadingAnimation from "@/components/loading";
-import Orb from "@/components/ui/Orb";
-import { TextAnimate } from "@/components/ui/text-animate";
+"use client"
 
-export default function Home() {
+import LoadingAnimation from "@/components/loading";
+import HomePage from "@/components/pages/home";
+import { TextAnimate } from "@/components/ui/text-animate";
+import { useEffect, useState } from "react";
+import { motion } from 'framer-motion'
+import { Code2 } from "lucide-react";
+
+export default function Home () {
+  const [showLoading, setShowLoading] = useState(true)
+
+  useEffect(() => {
+    // Hide after animation (8s delay + 0.5s fade = 8.5s)
+    const timeout = setTimeout(() => setShowLoading(false), 8500)
+    return () => clearTimeout(timeout)
+  }, [])
+
+  if(showLoading) return <LoadingAnimation />
+
   return (
     <main className="bg-[#e8e8e3]">
-      <div className="w-full h-screen relative">
-        <Orb hoverIntensity={0.2} rotateOnHover hue={0} forceHoverState={false} >
-          <div className="absolute inset-0 flex flex-col justify-center items-center gap-2">
-            <TextAnimate animation="slideUp" by="character" duration={1} delay={9.5} className="w-fit text-5xl sm:text-9xl text-[#171717] font-medium font-[lora]" >
-              Tarek Sabony
-            </TextAnimate>
-            <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.0625 0L12.1247 10.5L0.000322342 10.5L6.0625 0Z" fill="#6B645C"/></svg>
-            <div className="w-fit h-fit flex flex-col justify-center items-center">
-              <TextAnimate animation="slideUp" by="word" duration={1} delay={10} className="w-fit text-xl sm:text-3xl text-[#6B645C] text-center font-medium font-[raleway]" >
-                Think it. Solve it. Build it.
-              </TextAnimate>
-              <TextAnimate animation="slideUp" by="word" duration={1} delay={10.5} className="w-fit text-xl sm:text-3xl text-[#6B645C] text-center font-medium font-[raleway] px-2" >
-                This is how I turn ideas into an Interactive Reality.
-              </TextAnimate>
-            </div>
-          </div>
-        </Orb>
-        <div className="hidden sm:inline-block absolute top-1/4 right-64">
-          <TextAnimate animation="slideLeft" by="text" duration={1.5} delay={9} className="w-fit text-3xl text-[#6B645C] text-center font-medium font-[raleway] leading-12" >
-            {`D\nE\nV\nE\nL\nO\nP\nE\nR`}
-          </TextAnimate>
-        </div>
-      </div>
-      <LoadingAnimation />
+      <HomePage />
+      {/* <div className="w-full h-250 bg-amber-600">
+        saddddddd
+      </div> */}
+
+
+      <TextAnimate animation="slideUp" by="text" duration={1.5} delay={0.5} once className="w-fit h-fit fixed bottom-4 left-4 text-xs sm:text-base text-[#171717] font-medium font-[lora]" >
+        Think it. Solve it. Build it.
+      </TextAnimate>
+      <motion.div
+        initial={{ y: -10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.5, ease: "easeInOut" }}
+        className="w-fit h-fit fixed top-6 right-6"
+      >
+        <Code2 size={28} color="#171717" />
+      </motion.div>
+      <TextAnimate animation="slideLeft" by="text" duration={1.5} delay={0.5} once className="w-fit hidden sm:inline-block absolute top-1/4 right-6 text-3xl text-[#6B645C] text-center font-medium font-[raleway] leading-12" >
+        {`D\nE\nV\nE\nL\nO\nP\nE\nR`}
+      </TextAnimate>
     </main>
   );
 }
