@@ -1,17 +1,20 @@
 "use client"
 
 import Orb from "../ui/Orb";
-import { motion } from 'framer-motion'
+import { motion, MotionValue, useTransform } from 'framer-motion'
 import { TextAnimate } from "../ui/text-animate";
-import { Code2, Triangle } from "lucide-react";
+import { Triangle } from "lucide-react";
 
-export default function HomePage () {
+export default function HomePage ({ scroll } : { scroll: MotionValue<number> }) {
+  const y = useTransform(scroll, [0, 1], [0, 1600]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.5 }}
       className="w-full h-svh relative overflow-hidden"
+      style={{ y }}
       >
       <Orb>
         <div className="absolute inset-0 flex flex-col justify-center items-center gap-2">
