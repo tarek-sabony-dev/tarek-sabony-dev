@@ -17,7 +17,7 @@ export default function Home () {
     return () => clearTimeout(timeout)
   }, [])
 
-  // if(showLoading) return <LoadingAnimation />
+  if(showLoading) return <LoadingAnimation />
 
   return (
     <main className="bg-[#e8e8e3] flex flex-col">
