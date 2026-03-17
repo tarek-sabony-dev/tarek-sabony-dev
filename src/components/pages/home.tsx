@@ -1,12 +1,15 @@
 "use client"
 
 import Orb from "../ui/Orb";
-import { motion, MotionValue, useTransform } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { TextAnimate } from "../ui/text-animate";
 import { Triangle } from "lucide-react";
+import { useIsMobile } from "../hooks/useMobile";
 
-export default function HomePage ({ scroll } : { scroll: MotionValue<number> }) {
-  const y = useTransform(scroll, [0, 1], [0, 1600]);
+export default function HomePage () {
+  const isMobile = useIsMobile()
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 400 : 1600]);
 
   return (
     <motion.div
@@ -14,7 +17,10 @@ export default function HomePage ({ scroll } : { scroll: MotionValue<number> }) 
       animate={{ opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.5 }}
       className="w-full h-svh relative overflow-hidden"
-      style={{ y }}
+      style={{ 
+        y, 
+        willChange: "transform" 
+      }}
       >
       <Orb>
         <div className="absolute inset-0 flex flex-col justify-center items-center gap-2">

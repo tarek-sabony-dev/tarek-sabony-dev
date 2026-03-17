@@ -22,16 +22,16 @@ interface LenisProviderProps {
 }
 
 const defaultOptions = {
-  duration: 1.2,
-  easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  duration: 1.6,
+  easing: (t: number) => 1 - Math.pow(1 - t, 3),
   orientation: "vertical" as const,
   gestureOrientation: "vertical" as const,
   smoothWheel: true,
   smoothTouch: false,
-  wheelMultiplier: 1,
+  wheelMultiplier: 1.3,
   touchMultiplier: 1,
   infinite: false,
-  lerp: 0.1,
+  lerp: 0,
 };
 
 export default function LenisProvider({ 

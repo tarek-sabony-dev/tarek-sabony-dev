@@ -4,7 +4,7 @@ import LoadingAnimation from "@/components/loading";
 import HomePage from "@/components/pages/home";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import { Code2 } from "lucide-react";
 
 export default function Home () {
@@ -20,8 +20,8 @@ export default function Home () {
   if(showLoading) return <LoadingAnimation />
 
   return (
-    <main className="bg-[#e8e8e3] flex flex-col">
-      <HomePage scroll={scrollYProgress} />
+    <main className="bg-[#e8e8e3] flex flex-col relative">
+      <HomePage/>
       <div className="w-full h-375 bg-[#080807] z-10">
         saddddddd
       </div>
