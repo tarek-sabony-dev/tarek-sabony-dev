@@ -129,3 +129,24 @@
     animation: none;
     mix-blend-mode: normal;
 }
+
+/* my colors */
+.bg-light {
+  background-color: #E8E8E3;
+}
+
+.primary-light {
+  color: #171717;
+}
+
+.secondary-light {
+  color: #6B645C;
+}
+
+.bg-dark {
+  background-color: #080807;
+}
+
+.primary-dark {
+  color: #E8E8E3;
+}

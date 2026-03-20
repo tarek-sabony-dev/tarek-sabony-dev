@@ -5,7 +5,7 @@ import HomePage from "@/components/pages/home";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Code2 } from "lucide-react";
+import { GiCoffeeBeans } from "react-icons/gi";
 
 export default function Home () {
   const [showLoading, setShowLoading] = useState(true)
@@ -27,15 +27,15 @@ export default function Home () {
     return () => clearTimeout(timeout)
   }, [])
 
-  // if(showLoading) return <LoadingAnimation />
+  if(showLoading) return <LoadingAnimation />
 
   return (
-    <main className="bg-[#e8e8e3] flex flex-col relative">
+    <main className="bg-light flex flex-col relative">
       <HomePage/>
-      <motion.div className="w-full h-575 text-white bg-[#080807] z-10">
+      <motion.div className="w-full h-575 text-white bg-dark z-10">
         {displayPercentage}
       </motion.div>
-      <motion.div className="w-full h-575 text-white bg-[#E8E8E3] z-10">
+      <motion.div className="w-full h-575 text-white bg-light z-10">
         {displayPercentage}
       </motion.div>
 
@@ -48,18 +48,18 @@ export default function Home () {
         delay={0.5}
         once
       >
-        Think it. Solve it. Build it.
+        Think it  •  Solve it  •  Build it
       </TextAnimate>
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 20, opacity: 0 }}
         transition={{ delay: 0.5, duration: 0.3, ease: "easeOut" }}
-        className="w-fit h-fit fixed top-6 right-6 mix-blend-difference z-10"
+        className="w-fit h-fit fixed top-4 right-4 mix-blend-difference z-10"
       >
-        <Code2 size={28} color="#e8e8e3" />
+        <GiCoffeeBeans size={28} color="#e8e8e3" />
       </motion.div>
-      <TextAnimate animation="slideLeft" by="text" duration={1.5} delay={0.5} once className="w-fit hidden sm:inline-block fixed top-1/4 right-6 text-3xl text-[#e8e8e3] text-center font-medium font-[raleway] leading-12 mix-blend-difference z-10" >
+      <TextAnimate animation="slideLeft" by="text" duration={1.5} delay={0.5} once className="w-fit hidden sm:inline-block fixed top-1/4 right-4 text-3xl text-[#e8e8e3] text-center font-medium font-[raleway] leading-12 mix-blend-difference z-10" >
         {`D\nE\nV\nE\nL\nO\nP\nE\nR`}
       </TextAnimate>
       <motion.div
