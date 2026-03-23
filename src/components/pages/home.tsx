@@ -1,15 +1,14 @@
 "use client"
 
 import Orb from "../ui/Orb";
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, MotionValue, useTransform } from 'motion/react'
 import { TextAnimate } from "../ui/text-animate";
 import { Triangle } from "lucide-react";
 import { useIsMobile } from "../hooks/useMobile";
 
-export default function HomePage () {
+export default function HomePage ({ scroll } : { scroll: MotionValue }) {
   const isMobile = useIsMobile()
-  const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], [0, isMobile ? 400 : 1600]);
+  const y = useTransform(scroll, [0, 1], [0, isMobile ? 400 : 1600]);
 
   return (
     <motion.div

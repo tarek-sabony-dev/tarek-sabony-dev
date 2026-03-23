@@ -4,8 +4,9 @@ import LoadingAnimation from "@/components/loading";
 import HomePage from "@/components/pages/home";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from 'framer-motion'
 import { GiCoffeeBeans } from "react-icons/gi";
+import SkillsPage from "@/components/pages/skills";
+import { useScroll, useTransform, motion } from "motion/react";
 
 export default function Home () {
   const [showLoading, setShowLoading] = useState(true)
@@ -31,14 +32,12 @@ export default function Home () {
 
   return (
     <main className="bg-light flex flex-col relative">
-      <HomePage/>
-      <motion.div className="w-full h-575 text-white bg-dark z-10">
-        {displayPercentage}
-      </motion.div>
-      <motion.div className="w-full h-575 text-white bg-light z-10">
-        {displayPercentage}
-      </motion.div>
+      <HomePage scroll={scrollYProgress} />
+      <SkillsPage scroll={scrollYProgress} />
 
+      <motion.div className="w-full h-575 flex justify-center items-center text-black text-8xl bg-light z-10">
+        {displayPercentage}
+      </motion.div>
 
       <TextAnimate
         className="w-fit h-fit fixed bottom-4 left-4 text-xs sm:text-base text-[#e8e8e3] font-medium font-[lora] mix-blend-difference z-10"
@@ -53,7 +52,6 @@ export default function Home () {
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 20, opacity: 0 }}
         transition={{ delay: 0.5, duration: 0.3, ease: "easeOut" }}
         className="w-fit h-fit fixed top-4 right-4 mix-blend-difference z-10"
       >
@@ -65,7 +63,6 @@ export default function Home () {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -20, opacity: 0 }}
         transition={{ delay: 0.5, duration: 0.3, ease: "easeOut" }}
         className="w-fit h-fit flex justify-end items-center gap-0 sm:gap-2 fixed bottom-4 right-4 text-xs sm:text-base text-[#e8e8e3] font-medium font-[lora] mix-blend-difference z-10"
       >
