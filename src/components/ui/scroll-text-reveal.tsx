@@ -1,14 +1,12 @@
 "use client"
 
+import { cn } from "@/lib/utils"
 import {
   useRef,
   type ComponentPropsWithoutRef,
   type FC,
 } from "react"
 import { AnimatePresence, easeInOut, motion, MotionValue, useScroll, useTransform } from "motion/react"
-
-import { cn } from "@/lib/utils"
-import { useIsMobile } from "../hooks/useMobile"
 
 const containerVariants = {
   hidden: {
@@ -25,49 +23,40 @@ const containerVariants = {
       staggerChildren: 0.1, // Stagger each child by 0.1 seconds
       delayChildren: 0.1, // delay before starting children
     }
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      staggerChildren: 0.1,
-      staggerDirection: -1, // Reverse order on exit
-      when: "afterChildren", // Children exit first, then container
-    }
   }
-};
+}
 
 const childVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -20 }
-};
-
-export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
-  children: string
 }
 
-export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
-  const isMobile = useIsMobile()
-  const sectionRef = useRef<HTMLDivElement | null>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-  })
+export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
+  children: string,
+  scroll: MotionValue
+}
 
+export const TextReveal: FC<TextRevealProps> = ({ children, className, scroll }) => {
+  const sectionRef = useRef<HTMLDivElement | null>(null)
+  const { scrollYProgress } = useScroll({ target: sectionRef })
+  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 5])
+  const backgroundColor = useTransform(scrollYProgress, [0.9, 1], ["#080807", "#121212"])
+  
   const words = children.split(" ")
 
   return (
-    <div ref={sectionRef} className={cn("relative z-0 h-[200svh]", className)}>
+    <motion.div ref={sectionRef} style={{ backgroundColor }} className={cn("relative z-0 h-[300svh]", className)}>
       <AnimatePresence>
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial={"hidden"}
           whileInView={"visible"}
-          exit={"exit"}
           viewport={{ amount: 0.7 }}
           className={"h-svh sticky top-0 flex items-center bg-transparent px-4 py-20"}
         >
-          <div className="absolute inset-0 flex justify-center items-center">
-            <div className="w-50 h-80 sm:w-100 sm:h-175 rounded-full bg-[#121212]" />
+          <div className="absolute inset-0 flex justify-center items-center overflow-hidden">
+            <motion.div style={{ scale }} className="w-50 h-80 sm:w-100 sm:h-175 rounded-full bg-[#121212]" />
           </div>
           <span className={"flex flex-wrap justify-center p-5 text-3xl font-bold primary-dark md:p-8 md:text-3xl lg:p-100 lg:text-6xl "}>
             {words.map((word, i) => {
@@ -82,7 +71,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
           </span>
         </motion.div>
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }
 
