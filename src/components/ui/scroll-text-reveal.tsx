@@ -53,7 +53,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className, scroll })
           initial={"hidden"}
           whileInView={"visible"}
           viewport={{ amount: 0.7 }}
-          className={"h-svh sticky top-0 flex items-center bg-transparent px-4 py-20"}
+          className={"h-lvh sticky top-0 flex items-center bg-transparent px-4 py-20"}
         >
           <div className="absolute inset-0 flex justify-center items-center overflow-hidden">
             <motion.div style={{ scale }} className="w-50 h-80 sm:w-100 sm:h-175 rounded-full bg-[#121212]" />
