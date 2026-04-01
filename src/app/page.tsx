@@ -35,9 +35,9 @@ export default function Home () {
       <HomePage scroll={scrollYProgress} />
       <SkillsPage scroll={scrollYProgress} />
 
-      {/* <motion.div className="w-full h-575 flex justify-center items-center text-black text-8xl bg-light z-10">
-        {displayPercentage}
-      </motion.div> */}
+      <motion.div className="w-full h-575 flex justify-center items-center text-black text-8xl bg-light z-10">
+        asd
+      </motion.div>
 
       <TextAnimate
         className="w-fit h-fit fixed bottom-4 left-4 text-xs sm:text-base text-[#e8e8e3] font-medium font-[lora] mix-blend-difference z-10"
