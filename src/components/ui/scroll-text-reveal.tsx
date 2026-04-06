@@ -34,10 +34,9 @@ const childVariants = {
 
 export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
   children: string,
-  scroll: MotionValue
 }
 
-export const TextReveal: FC<TextRevealProps> = ({ children, className, scroll }) => {
+export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
   const sectionRef = useRef<HTMLDivElement | null>(null)
   const { scrollYProgress } = useScroll({ target: sectionRef })
   const scale = useTransform(scrollYProgress, [0.5, 1], [1, 5])

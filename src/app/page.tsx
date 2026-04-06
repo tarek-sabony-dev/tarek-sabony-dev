@@ -66,10 +66,10 @@ export default function Home () {
         transition={{ delay: 0.5, duration: 0.3, ease: "easeOut" }}
         className="w-fit h-fit flex justify-end items-center gap-0 sm:gap-2 fixed bottom-4 right-4 text-xs sm:text-base text-[#e8e8e3] font-medium font-[lora] mix-blend-difference z-10"
       >
-        <div className="w-25 sm:w-50 h-0.5 flex justify-start bg-[#6B645C]/50">
+        <div className="w-25 sm:w-50 h-0.5 flex justify-end bg-[#6B645C]/50">
           <motion.div 
             className="w-full h-full bg-[#e8e8e3] "
-            style={{ scaleX: width }}
+            style={{ width }}
             >
           </motion.div>
         </div>
