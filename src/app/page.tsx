@@ -28,7 +28,7 @@ export default function Home () {
     return () => clearTimeout(timeout)
   }, [])
 
-  // if(showLoading) return <LoadingAnimation />
+  if(showLoading) return <LoadingAnimation />
 
   return (
     <main className="bg-light flex flex-col relative">
