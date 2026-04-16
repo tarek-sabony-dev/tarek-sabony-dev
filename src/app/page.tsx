@@ -35,8 +35,8 @@ export default function Home () {
       <HomePage scroll={scrollYProgress} />
       <SkillsPage scroll={scrollYProgress} />
 
-      <motion.div className="w-full h-575 flex justify-center items-center text-black text-8xl bg-light z-10">
-        asd
+      <motion.div className="w-full h-575 flex justify-center items-center text-black text-8xl overflow-hidden bg-light z-10">
+        comming soon...
       </motion.div>
 
       <TextAnimate
