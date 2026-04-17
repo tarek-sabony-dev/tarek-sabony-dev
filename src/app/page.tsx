@@ -12,7 +12,9 @@ export default function Home () {
   const [showLoading, setShowLoading] = useState(true)
   const [displayPercentage, setDisplayPercentage] = useState(0)
   const { scrollYProgress } = useScroll()
+
   const width = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+  const backgroundColor = useTransform(scrollYProgress, [0.85, 0.855], ['#121212', '#e8e8e3'])
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {
@@ -35,7 +37,10 @@ export default function Home () {
       <HomePage scroll={scrollYProgress} />
       <SkillsPage scroll={scrollYProgress} />
 
-      <motion.div className="w-full h-575 flex justify-center items-center text-black text-8xl overflow-hidden bg-light z-10">
+      <motion.div 
+        style={{ background: backgroundColor }} 
+        className="w-full h-575 flex justify-center items-start pt-60 text-black text-8xl overflow-hidden z-10"
+      >
         comming soon...
       </motion.div>
 

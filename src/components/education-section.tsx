@@ -3,8 +3,8 @@
 import { useScroll, useTransform, motion, useMotionValueEvent } from "motion/react";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import { LiaInfoCircleSolid, LiaUniversitySolid } from "react-icons/lia";
-import { TextAnimate } from "./ui/text-animate";
+import { GrTechnology } from "react-icons/gr";
+import { LiaUniversitySolid } from "react-icons/lia";
 
 export default function EducationSection () {
   const [firstTextReveal, setfirstTextReveal] = useState(false)
@@ -48,7 +48,7 @@ export default function EducationSection () {
                 transition={{ duration: 0.8, ease: "easeInOut", delay: secondTextReveal ? 1 : 0 }}
                 className="w-fit h-fit absolute top-0 left-0"
               >
-                <LiaInfoCircleSolid color="white" size={38} />
+                <GrTechnology color="white" size={38} />
               </motion.div>
             </div>
             <motion.div 
@@ -76,7 +76,8 @@ export default function EducationSection () {
                 transition={{ duration: 0.8, ease: "easeInOut", delay: 0.5 }}
                 className="w-fit sm:w-3/4 font-[raleway] text-base sm:text-xl secondary-dark whitespace-pre-line"
               >
-                I started my Information Technology Engineering journey in 2023 at Damascus University.
+                I started my Information Technology Engineering journey in 2023 at Damascus University.<br />
+                where I built a strong foundation in algorithms, systems thinking, and software architecture.
               </motion.p>
             </div>
             {/* Second text set - positioned absolutely to overlay */}
@@ -98,7 +99,7 @@ export default function EducationSection () {
                   transition={{ duration: 0.8, ease: "easeInOut", delay: secondTextReveal ? 1 : 0 }}
                   className="w-fit sm:w-3/4 font-[raleway] text-base sm:text-xl secondary-dark whitespace-pre-line"
                   >
-                  My education is not just about acquiring knowledge; it's about honing my problem-solving skills, which are essential for a successful career in software development.
+                  My study blends well with my development skills, using the engineer mindset I build complete technical solutions that scale, moving beyond “making it work” to “making it work reliably, securely and efficiently”.
                 </motion.p>
               </div>
             </div>
