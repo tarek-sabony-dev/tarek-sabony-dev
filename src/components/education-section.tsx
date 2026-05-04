@@ -29,8 +29,8 @@ export default function EducationSection () {
   })
   
   return (
-    <div ref={ref} className="w-full h-[300svh] flex flex-col justify-start items-center relative bg-[#121212] text-black text-8xl z-10">
-      <div className='w-full h-lvh sticky top-0 flex justify-between items-center flex-wrap gap-4 sm:gap-16 bg-transparent px-10 sm:px-20 lg:px-30 py-25 sm:py-50 '>
+    <div ref={ref} className="w-full h-[300svh] flex flex-col justify-start items-center relative bg-[#121212] text-black z-10">
+      <div className='w-full h-lvh sticky top-0 flex justify-between items-center flex-wrap lg:flex-nowrap gap-4 sm:gap-16 bg-transparent px-10 sm:px-20 lg:px-30 py-25 sm:py-50 '>
         <div className='w-fit h-fit flex flex-col justify-center items-start gap-8'>
           <div className="w-full h-fit flex flex-col justify-center items-start gap-4">
             <div className="overflow-hidden relative">

@@ -20,7 +20,7 @@ export default function HomePage ({ scroll } : { scroll: MotionValue }) {
       <Orb>
         <div className="absolute inset-0 flex flex-col justify-center items-center gap-2">
           <TextAnimate 
-            className="w-fit text-5xl sm:text-9xl primary-light font-medium font-[lora]" 
+            className="w-fit text-[clamp(3rem,1.077rem+7.692vw,7rem)] leading-[1.2] primary-light font-medium font-[lora]" 
             animation="blurInUp"
             by="character"
             duration={1}
@@ -38,7 +38,7 @@ export default function HomePage ({ scroll } : { scroll: MotionValue }) {
           </motion.div>
           <div className="w-fit h-fit flex flex-col justify-center items-center">
             <TextAnimate 
-              className="w-fit text-xl sm:text-3xl secondary-light text-center font-medium font-[raleway]" 
+              className="w-fit text-[clamp(1.25rem,0.849rem+1.603vw,1.6rem)] secondary-light text-center font-medium font-[raleway]" 
               animation="blurInUp" 
               by="word" 
               duration={1} 
@@ -48,7 +48,7 @@ export default function HomePage ({ scroll } : { scroll: MotionValue }) {
               Think it. Solve it. Build it.
             </TextAnimate>
             <TextAnimate 
-              className="w-fit text-xl sm:text-3xl secondary-light text-center font-medium font-[raleway] px-2" 
+              className="w-fit text-[clamp(1.25rem,0.849rem+1.603vw,1.6rem)] secondary-light text-center font-medium font-[raleway] px-2" 
               animation="blurInUp" 
               by="word" 
               duration={0.5} 

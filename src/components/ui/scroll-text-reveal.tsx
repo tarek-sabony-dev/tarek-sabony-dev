@@ -57,7 +57,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
           <div className="absolute inset-0 flex justify-center items-center overflow-hidden">
             <motion.div style={{ scale }} className="w-50 h-80 sm:w-100 sm:h-175 rounded-full bg-[#121212]" />
           </div>
-          <span className={"flex flex-wrap justify-center p-5 text-3xl font-bold primary-dark md:p-8 md:text-3xl lg:p-100 lg:text-6xl "}>
+          <span className={"flex flex-wrap justify-center p-5 text-[clamp(1.875rem,0.673rem+4.808vw,3.5rem)] leading-[1.2] font-bold primary-dark md:p-8 lg:p-85"}>
             {words.map((word, i) => {
               const start = i / words.length
               const end = start + 1 / words.length
