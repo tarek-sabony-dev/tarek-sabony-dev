@@ -40,10 +40,14 @@ export default function LenisProvider({
   className = ""
 }: LenisProviderProps) {
   const lenisRef = useRef<Lenis | null>(null);
+  // Store options in a ref so the effect only runs once, even if the
+  // options object reference changes between renders
+  const optionsRef = useRef(options);
+  optionsRef.current = options;
 
   useEffect(() => {
     // Merge default options with provided options
-    const mergedOptions = { ...defaultOptions, ...options };
+    const mergedOptions = { ...defaultOptions, ...optionsRef.current };
     
     // Initialize Lenis
     const lenis = new Lenis(mergedOptions);
@@ -66,7 +70,7 @@ export default function LenisProvider({
       lenis.destroy();
       setGlobalLenis(null as any);
     };
-  }, [options]);
+  }, []);
 
   return <div className={className}>{children}</div>;
 }

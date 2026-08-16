@@ -3,14 +3,14 @@
 import LoadingAnimation from "@/components/loading";
 import HomePage from "@/components/pages/home";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GiCoffeeBeans } from "react-icons/gi";
 import SkillsPage from "@/components/pages/skills";
 import { useScroll, useTransform, motion } from "motion/react";
 
 export default function Home () {
   const [showLoading, setShowLoading] = useState(true)
-  const [displayPercentage, setDisplayPercentage] = useState(0)
+  const percentageRef = useRef<HTMLSpanElement>(null)
   const { scrollYProgress } = useScroll()
 
   const width = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
@@ -18,7 +18,10 @@ export default function Home () {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {
-      setDisplayPercentage(Math.round(latest * 100));
+      // Update the DOM directly to avoid re-rendering the entire page on every scroll frame
+      if (percentageRef.current) {
+        percentageRef.current.textContent = `${Math.round(latest * 100)}%`;
+      }
     });
     
     return () => unsubscribe();
@@ -78,8 +81,8 @@ export default function Home () {
             >
           </motion.div>
         </div>
-        <span className="w-8 text-right text-[clamp(0.75rem,0.75vw,1rem)]">
-          {`${displayPercentage}%`}
+        <span ref={percentageRef} className="w-8 text-right text-[clamp(0.75rem,0.75vw,1rem)]">
+          {`0%`}
         </span>
       </motion.div>
     </main>

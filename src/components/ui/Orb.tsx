@@ -241,6 +241,7 @@ export default function Orb({
     let targetHover = 0;
     let lastTime = 0;
     let currentRot = 0;
+    let isVisible = true;
     const rotationSpeed = 0.3;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -272,6 +273,8 @@ export default function Orb({
     let rafId: number;
     const update = (t: number) => {
       rafId = requestAnimationFrame(update);
+      // Skip expensive WebGL rendering when the orb is off-screen
+      if (!isVisible) return;
       const dt = (t - lastTime) * 0.001;
       lastTime = t;
       program.uniforms.iTime.value = t * 0.001;
@@ -291,8 +294,18 @@ export default function Orb({
     };
     rafId = requestAnimationFrame(update);
 
+    // Pause rendering when the orb scrolls out of view to save GPU resources
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0 }
+    );
+    observer.observe(container);
+
     return () => {
       cancelAnimationFrame(rafId);
+      observer.disconnect();
       window.removeEventListener('resize', resize);
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
