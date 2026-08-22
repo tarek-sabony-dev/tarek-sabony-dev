@@ -1,6 +1,6 @@
 "use client"
 
-import { useScroll, useTransform, motion, useMotionValueEvent, AnimatePresence } from "motion/react"
+import { useScroll, useTransform, motion, useMotionValueEvent, AnimatePresence, MotionValue } from "motion/react"
 import Image from "next/image"
 import { useRef, useState } from "react"
 import { GrTechnology } from "react-icons/gr"
@@ -10,7 +10,7 @@ type Phase = "hidden" | "first" | "second"
 
 const CIRCUMFERENCE = 2 * Math.PI * 16  // r=16
 
-export default function EducationSection() {
+export default function EducationPage ({ scroll } : { scroll : MotionValue}) {
   const [phase, setPhase] = useState<Phase>("hidden")
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref })
@@ -67,7 +67,7 @@ export default function EducationSection() {
   return (
     <div
       ref={ref}
-      className="w-full h-[370vh] flex flex-col justify-start items-center relative bg-[#121212] text-black z-10"
+      className="w-full h-[370vh] flex flex-col justify-start items-center relative bg-[#121212] z-10"
     >
       <div className="w-full h-lvh sticky top-0 flex justify-between items-center flex-wrap lg:flex-nowrap gap-4 sm:gap-16 bg-transparent px-10 sm:px-20 lg:px-30 py-25 sm:py-50">
         {/* Left column: content */}

@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import { GiCoffeeBeans } from "react-icons/gi";
 import SkillsPage from "@/components/pages/skills";
 import { useScroll, useTransform, motion } from "motion/react";
+import AboutMePage from "@/components/pages/about-me";
+import EducationPage from "@/components/pages/education";
 
 export default function Home () {
   const [showLoading, setShowLoading] = useState(true)
@@ -38,7 +40,9 @@ export default function Home () {
   return (
     <main className="bg-light flex flex-col relative">
       <HomePage scroll={scrollYProgress} />
-      <SkillsPage scroll={scrollYProgress} />
+      <AboutMePage scroll={scrollYProgress} />
+      <EducationPage scroll={scrollYProgress} />
+      {/* <SkillsPage scroll={scrollYProgress} /> */}
 
       <motion.div 
         style={{ background: backgroundColor }} 
