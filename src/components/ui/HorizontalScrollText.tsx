@@ -1,38 +1,26 @@
-// app/components/HorizontalScrollText.tsx
 "use client";
 
+import { motion, MotionValue, useInView, useTransform } from "motion/react";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
 
-export default function HorizontalScrollText() {
-  // 1. Create a ref to attach to the container we want to track
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  // 2. Track the scroll progress of the container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"], // Start when top of container hits bottom of viewport, end when bottom hits top
-  });
-
-  // 3. Transform the scroll progress into horizontal movement
-  //    Adjust the range [-25%, 25%] to control how far the text moves
-  const x = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
+export default function HorizontalScrollText({ text, scroll } : { text: string, scroll: MotionValue }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const x = useTransform(scroll, [0, 1], ["3%", "-250%"])
+  const height = useTransform(scroll, [0.4, 1], ["0%", "100%"])
 
   return (
-    // This div is the scroll container we're tracking
-    <div
-      ref={containerRef}
-      className="relative h-[300vh] w-full" // Height determines scroll duration
+    <motion.div 
+      style={{ height }}  
+      className="w-full flex items-center justify-start bg-light"
     >
-      {/* This div is sticky to keep the text in view while scrolling */}
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.h1
-          style={{ x }}
-          className="whitespace-nowrap text-6xl font-bold md:text-8xl lg:text-9xl"
-        >
-          Your Horizontal Scrolling Text Here
-        </motion.h1>
-      </div>
-    </div>
+      <motion.div
+        ref={ref}
+        style={{ x }}
+        className="w-full whitespace-nowrap font-[raleway] font-medium text-[64px] primary-dark mix-blend-difference sm:text-[175px] py-8"
+      >
+        {text}
+      </motion.div>
+    </motion.div>
   );
 }

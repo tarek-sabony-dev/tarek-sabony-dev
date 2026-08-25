@@ -42,11 +42,10 @@ export default function Home () {
       <HomePage scroll={scrollYProgress} />
       <AboutMePage scroll={scrollYProgress} />
       <EducationPage scroll={scrollYProgress} />
-      {/* <SkillsPage scroll={scrollYProgress} /> */}
+      <SkillsPage scroll={scrollYProgress} />
 
       <motion.div 
-        style={{ background: backgroundColor }} 
-        className="w-full h-575 flex justify-center items-start pt-60 text-black text-8xl overflow-hidden z-10"
+        className="w-full h-575 flex justify-center items-start pt-60 text-black text-8xl overflow-hidden z-10 bg-light"
       >
         comming soon...
       </motion.div>
