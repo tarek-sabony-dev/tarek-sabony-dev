@@ -1,13 +1,16 @@
 "use client";
 
-import { motion, MotionValue, useInView, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion, MotionValue, useTransform } from "motion/react";
+import { ReactNode } from "react";
 
+interface HorizontalScrollTextProps {
+  scroll: MotionValue
+  children: ReactNode
+}
 
-export default function HorizontalScrollText({ text, scroll } : { text: string, scroll: MotionValue }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const x = useTransform(scroll, [0, 1], ["3%", "-250%"])
-  const height = useTransform(scroll, [0.4, 1], ["0%", "100%"])
+export default function HorizontalScrollText({ children, scroll } : HorizontalScrollTextProps) {
+  const x = useTransform(scroll, [0, 1], ["5%", "-250%"])
+  const height = useTransform(scroll, [0.2, 1], ["0%", "100%"])
 
   return (
     <motion.div 
@@ -15,11 +18,10 @@ export default function HorizontalScrollText({ text, scroll } : { text: string, 
       className="w-full flex items-center justify-start bg-light"
     >
       <motion.div
-        ref={ref}
         style={{ x }}
-        className="w-full whitespace-nowrap font-[raleway] font-medium text-[64px] primary-dark mix-blend-difference sm:text-[175px] py-8"
+        className="w-full whitespace-nowrap font-[raleway] font-semibold text-[64px] primary-dark mix-blend-difference sm:text-[150px] py-8"
       >
-        {text}
+        {children}
       </motion.div>
     </motion.div>
   );
