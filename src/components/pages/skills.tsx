@@ -43,7 +43,7 @@ export default function SkillsPage ({ scroll } : { scroll : MotionValue}) {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end end"]
   })
 
   // Animations for the two paragraphs
@@ -52,7 +52,7 @@ export default function SkillsPage ({ scroll } : { scroll : MotionValue}) {
   const y1 = useTransform(scrollYProgress, [0, 0.1], [30, 0])
   
   return (
-    <div className="w-full flex flex-col justify-center items-center bg-dark z-10">
+    <div className="w-full flex flex-col justify-center items-center z-10">
       <div ref={containerRef} className="relative h-[300vh] w-full bg-[#121212]" >
         <div className="sticky top-0 flex h-screen flex-col items-start justify-center gap-24 sm:gap-8 overflow-hidden">
           <div className="w-full h-full flex flex-col justify-between items-center py-32 absolute -z-10">
@@ -61,7 +61,7 @@ export default function SkillsPage ({ scroll } : { scroll : MotionValue}) {
               className="w-full h-fit flex justify-start px-8 sm:px-32 py16 sm:py32"
             >
               <p className="w-60 sm:w-100 h-fit secondary-dark text-[12px] sm:text-base font-[raleway]">
-                Every choice of colour and font, every animation, every pixel, they're
+                Every choice of color and font, every animation, every pixel, they're
                 not just aesthetic decisions. They're psychological handshakes.
               </p>
             </motion.div>

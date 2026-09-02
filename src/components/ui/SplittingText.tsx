@@ -24,7 +24,7 @@ export default function SplittingText({ title, list }: SplittingTextProps) {
   const listItemsGap = useTransform(scrollYProgress, [0, 0.9], ["120px", "8px"])
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.1])
   const dashOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
-  const y = useTransform(scrollYProgress, [0, 0.9], ["1000px", "0px"])
+  const y = useTransform(scrollYProgress, [0, 0.9], ["1100px", "0px"])
 
   return (
     <div ref={containerRef} className="relative h-[250vh] w-full bg-light">

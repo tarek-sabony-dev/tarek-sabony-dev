@@ -9,6 +9,7 @@ import SkillsPage from "@/components/pages/skills";
 import { useScroll, useTransform, motion } from "motion/react";
 import AboutMePage from "@/components/pages/about-me";
 import EducationPage from "@/components/pages/education";
+import ProjectsPage from "@/components/pages/projects";
 
 export default function Home () {
   const [showLoading, setShowLoading] = useState(true)
@@ -35,7 +36,7 @@ export default function Home () {
     return () => clearTimeout(timeout)
   }, [])
 
-  if(showLoading) return <LoadingAnimation />
+  // if(showLoading) return <LoadingAnimation />
 
   return (
     <main className="bg-light flex flex-col relative">
@@ -43,6 +44,7 @@ export default function Home () {
       <AboutMePage scroll={scrollYProgress} />
       <EducationPage scroll={scrollYProgress} />
       <SkillsPage scroll={scrollYProgress} />
+      <ProjectsPage scroll={scrollYProgress} />
 
       <motion.div 
         className="w-full h-575 flex justify-center items-start pt-60 text-black text-8xl overflow-hidden z-10 bg-light"
