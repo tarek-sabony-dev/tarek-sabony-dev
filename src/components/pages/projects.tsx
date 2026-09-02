@@ -2,7 +2,7 @@
 
 import { MotionValue, motion, useInView, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { TextAnimate } from "../ui/text-animate";
+import { TextAnimate } from "../ui/TextAnimate";
 
 export default function ProjectsPage ({ scroll } : { scroll : MotionValue}) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -15,10 +15,10 @@ export default function ProjectsPage ({ scroll } : { scroll : MotionValue}) {
 
 
   return (
-    <div className="w-full h-fit flex flex-col justify-center items-center" ref={containerRef}>
+    <div ref={containerRef} className="w-full h-fit flex flex-col justify-center items-center">
       <div className="w-full h-fit flex flex-col justify-center items-start gap-4 px-8 sm:px-32">
         <motion.div 
-          className="w-full h-px bg-dark "
+          className="h-px bg-dark "
           style={{ width }}
           >
         </motion.div>
@@ -35,7 +35,7 @@ export default function ProjectsPage ({ scroll } : { scroll : MotionValue}) {
             className="text-2xl sm:text-5xl font-[raleway] font-semibold primary-light py-12"
             animation="slideUp"
             by="character"
-            delay={0.2}
+            delay={0.6}
           >
             E-commerce app
           </TextAnimate>
@@ -43,7 +43,7 @@ export default function ProjectsPage ({ scroll } : { scroll : MotionValue}) {
             className="text-2xl sm:text-5xl font-[raleway] font-semibold primary-light py-12"
             animation="slideUp"
             by="character"
-            delay={0.2}
+            delay={0.8}
 
           >
             Fluffy Store
@@ -52,7 +52,7 @@ export default function ProjectsPage ({ scroll } : { scroll : MotionValue}) {
             className="text-2xl sm:text-5xl font-[raleway] font-semibold primary-light py-12"
             animation="slideUp"
             by="character"
-            delay={0.2}
+            delay={1}
 
           >
             Architict Portfolio

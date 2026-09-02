@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import HorizontalScrollText from '../ui/HorizontalScrollText';
 import { useRef } from 'react';
 import SplittingText from '../ui/SplittingText';
+import { TextAnimate } from '../ui/TextAnimate';
 
 export type Skill = {
   name: string;

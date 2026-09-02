@@ -2,7 +2,7 @@
 
 import Orb from "../ui/Orb";
 import { motion, MotionValue, useTransform } from 'motion/react'
-import { TextAnimate } from "../ui/text-animate";
+import { TextAnimate } from "../ui/TextAnimate";
 import { Triangle } from "lucide-react";
 import { useIsMobile } from "../hooks/useMobile";
 

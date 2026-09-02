@@ -1,8 +1,7 @@
 "use client"
 
 import { MotionValue } from 'motion';
-import { TextReveal } from '../ui/scroll-text-reveal';
-import EducationPage from './education';
+import { TextReveal } from '../ui/ScrollTextReveal';
 
 export default function AboutMePage ({ scroll } : { scroll : MotionValue}) {
   

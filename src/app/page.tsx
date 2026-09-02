@@ -2,7 +2,7 @@
 
 import LoadingAnimation from "@/components/loading";
 import HomePage from "@/components/pages/home";
-import { TextAnimate } from "@/components/ui/text-animate";
+import { TextAnimate } from "@/components/ui/TextAnimate";
 import { useEffect, useRef, useState } from "react";
 import { GiCoffeeBeans } from "react-icons/gi";
 import SkillsPage from "@/components/pages/skills";

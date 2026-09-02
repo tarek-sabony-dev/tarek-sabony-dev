@@ -21,10 +21,10 @@ export default function SplittingText({ title, list }: SplittingTextProps) {
   const splittedText = title.split(/(\-)/)
 
   const gap = useTransform(scrollYProgress, [0, 0.3], ["0px", isMobile ? "100px" : "400px"])
-  const listItemsGap = useTransform(scrollYProgress, [0, 0.9], ["120px", "8px"])
+  const listItemsGap = useTransform(scrollYProgress, [0, 1], ["120px", "8px"])
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.1])
   const dashOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
-  const y = useTransform(scrollYProgress, [0, 0.9], ["1100px", "0px"])
+  const y = useTransform(scrollYProgress, [0, 1], ["1100px", "0px"])
 
   return (
     <div ref={containerRef} className="relative h-[250vh] w-full bg-light">
