@@ -40,18 +40,15 @@ export default function Home () {
 
   return (
     <main className="bg-light flex flex-col relative">
+      {/* Pages */}
       <HomePage scroll={scrollYProgress} />
       <AboutMePage scroll={scrollYProgress} />
       <EducationPage scroll={scrollYProgress} />
       <SkillsPage scroll={scrollYProgress} />
       <ProjectsPage scroll={scrollYProgress} />
+      {/* <ContactMePage scroll={scrollYProgress} /> */}
 
-      <motion.div 
-        className="w-full h-575 flex justify-center items-start pt-60 text-black text-8xl overflow-hidden z-10 bg-light"
-      >
-        comming soon...
-      </motion.div>
-
+      {/* Sticky content */}
       <TextAnimate
         className="w-fit h-fit fixed bottom-4 left-4 text-[clamp(0.75rem,0.75vw,1rem)] text-[#e8e8e3] font-medium font-[lora] mix-blend-difference z-10"
         animation="slideUp"
