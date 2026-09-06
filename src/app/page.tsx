@@ -18,7 +18,6 @@ export default function Home () {
   const { scrollYProgress } = useScroll()
 
   const width = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
-  const backgroundColor = useTransform(scrollYProgress, [0.85, 0.855], ['#121212', '#e8e8e3'])
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {

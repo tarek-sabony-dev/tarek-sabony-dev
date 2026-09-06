@@ -3,15 +3,18 @@
 import { MotionValue, motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { TextAnimate } from "../ui/TextAnimate";
+import Link from "next/link";
 
 type Project = {
   projectName: string
+  href: string
   techStack: string[]
 }
 
 const projects : Project[] = [
   {
     projectName: "E-commerce app",
+    href: "https://e-commerce-beige-ten-84.vercel.app/shop",
     techStack: [
       "Next.js",
       "Zustand",
@@ -22,6 +25,7 @@ const projects : Project[] = [
   },
   {
     projectName: "Architect Portfolio",
+    href: "#",
     techStack: [
       "Next.js",
       "TailwindCSS",
@@ -57,14 +61,16 @@ export default function ProjectsPage ({ scroll } : { scroll : MotionValue}) {
         <div className="w-full h-fit flex flex-col justify-center items-end gap-16 sm:gap-24">
           {projects.map((project, index) => (
             <div key={index} className="w-fit h-fit flex flex-col justify-center items-end gap-4 sm:gap-8">
-              <TextAnimate
-                className="text-2xl sm:text-5xl font-[raleway] font-semibold primary-light"
-                animation="slideUp"
-                by="character"
-                delay={0.6}
-                >
-                {project.projectName}
-              </TextAnimate>
+              <Link href={project.href} target='_blank' rel="noopener noreferrer">
+                <TextAnimate
+                  className="text-2xl sm:text-5xl font-[raleway] font-semibold primary-light"
+                  animation="slideUp"
+                  by="character"
+                  delay={0.6}
+                  >
+                  {project.projectName}
+                </TextAnimate>
+              </Link>
               <div className="w-fit h-fit flex justify-center items-center gap-4 sm:gap-8">
                 {project.techStack.map((tech, index) => (
                   <TextAnimate
