@@ -8,7 +8,7 @@ import { useIsMobile } from "../hooks/useMobile";
 
 export default function HomePage ({ scroll } : { scroll: MotionValue }) {
   const isMobile = useIsMobile()
-  const y = useTransform(scroll, [0, 1], [0, isMobile ? 400 : 1600]);
+  const y = useTransform(scroll, [0, 1], [0, 1600]);
 
   return (
     <motion.div

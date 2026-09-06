@@ -10,6 +10,7 @@ import { useScroll, useTransform, motion } from "motion/react";
 import AboutMePage from "@/components/pages/about-me";
 import EducationPage from "@/components/pages/education";
 import ProjectsPage from "@/components/pages/projects";
+import ContactMePage from "@/components/pages/contact-me";
 
 export default function Home () {
   const [showLoading, setShowLoading] = useState(true)
@@ -46,7 +47,7 @@ export default function Home () {
       <EducationPage scroll={scrollYProgress} />
       <SkillsPage scroll={scrollYProgress} />
       <ProjectsPage scroll={scrollYProgress} />
-      {/* <ContactMePage scroll={scrollYProgress} /> */}
+      <ContactMePage scroll={scrollYProgress} />
 
       {/* Sticky content */}
       <TextAnimate

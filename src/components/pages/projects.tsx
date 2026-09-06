@@ -41,12 +41,11 @@ export default function ProjectsPage ({ scroll } : { scroll : MotionValue}) {
 
   return (
     <div ref={containerRef} className="w-full h-fit flex flex-col justify-center items-center">
-      <div className="w-full h-fit flex flex-col justify-center items-start gap-4 px-8 sm:px-32">
+      <div className="w-full h-fit flex flex-col justify-center items-start gap-4 p-8 sm:p-32">
         <motion.div 
           className="h-px bg-dark "
           style={{ width }}
-          >
-        </motion.div>
+        />
         <TextAnimate 
           className="text-xs sm:text-base font-[raleway] primary-light pb-12"
           animation="slideUp"
@@ -70,7 +69,7 @@ export default function ProjectsPage ({ scroll } : { scroll : MotionValue}) {
                 {project.techStack.map((tech, index) => (
                   <TextAnimate
                     key={index}
-                    className="text-xs sm:text-base font-[raleway] secondary-light"
+                    className="text-xs sm:text-base font-[raleway] font-semibold secondary-light"
                     animation="slideUp"
                     by="word"
                     delay={0.8}
